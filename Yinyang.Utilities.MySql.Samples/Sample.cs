@@ -19,8 +19,8 @@ namespace Yinyang.Utilities.MySql.Samples
         ///     ConnectionString設定後、省略可能
         /// </remarks>
         public Sample() =>
-            // Set default connection string
-            MySql.ConnectionString = ConnectionString;
+             // Set default connection string
+             MySqlConnect.ConnectionString = ConnectionString;
 
         /// <summary>
         ///     Select Sample
@@ -28,7 +28,7 @@ namespace Yinyang.Utilities.MySql.Samples
         public void Select()
         {
             // Use default connection string
-            using (var db = new MySql())
+            using (var db = new MySqlConnect())
             {
                 db.Open();
                 db.CommandText = "select * from test;";
@@ -36,7 +36,7 @@ namespace Yinyang.Utilities.MySql.Samples
                 db.Close();
             }
 
-            using (var db = new MySql(ConnectionString))
+            using (var db = new MySqlConnect(ConnectionString))
             {
                 db.Open();
                 db.CommandText = "select * from test;";
@@ -50,7 +50,7 @@ namespace Yinyang.Utilities.MySql.Samples
         /// </summary>
         public void Insert()
         {
-            using var db = new MySql(ConnectionString);
+            using var db = new MySqlConnect(ConnectionString);
 
             db.Open();
 
