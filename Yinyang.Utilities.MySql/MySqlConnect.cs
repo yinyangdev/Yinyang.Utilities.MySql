@@ -6,7 +6,7 @@ using MySql.Data.MySqlClient;
 
 namespace Yinyang.Utilities.MySql
 {
-    public class MySql : IDisposable
+    public class MySqlConnect : IDisposable
     {
         private readonly string _connectionString;
         private readonly MySqlConnection _sqlConnection;
@@ -30,7 +30,7 @@ namespace Yinyang.Utilities.MySql
         /// <summary>
         ///     Constructor (Use ConnectionString property)
         /// </summary>
-        public MySql()
+        public MySqlConnect()
         {
             if (string.IsNullOrEmpty(ConnectionString))
             {
@@ -48,7 +48,7 @@ namespace Yinyang.Utilities.MySql
         ///     Constructor
         /// </summary>
         /// <param name="connectionString">The connection string that includes the source database name, and other parameters needed to establish the initial connection. The default value is an empty string.</param>
-        public MySql(string connectionString)
+        public MySqlConnect(string connectionString)
         {
             _connectionString = connectionString;
 
@@ -80,9 +80,9 @@ namespace Yinyang.Utilities.MySql
         ///     Copy
         /// </summary>
         /// <returns></returns>
-        public MySql Copy()
+        public MySqlConnect Copy()
         {
-            return new MySql(_connectionString);
+            return new MySqlConnect(_connectionString);
         }
 
         /// <summary>
